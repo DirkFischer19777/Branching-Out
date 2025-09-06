@@ -2,6 +2,13 @@ import json
 
 
 def filter_users_by_name(name):
+    """
+        Filtert Benutzer aus users.json anhand ihres Namens (case-insensitive).
+
+        Args:
+            name (str): Name des Benutzers, nach dem gefiltert werden soll.
+    """
+
     with open("users.json", "r") as file:
         users = json.load(file)
 
@@ -16,6 +23,7 @@ def filter_users_by_age(min_age, max_age=None):
     - min_age: Mindestalter
     - max_age: optional, Maximalalter
     """
+
     with open("users.json", "r") as file:
         users = json.load(file)
 
@@ -28,6 +36,13 @@ def filter_users_by_age(min_age, max_age=None):
         print(user)
 
 def filter_users_by_email(email):
+    """
+        Filtert Benutzer aus users.json anhand ihrer E-Mail-Adresse (case-insensitive).
+
+        Args:
+            email (str): E-Mail-Adresse, nach der gefiltert werden soll.
+    """
+
     with open("users.json", "r") as file:
         users = json.load(file)
 
@@ -37,7 +52,9 @@ def filter_users_by_email(email):
         print(user)
 
 
-if __name__ == "__main__":
+def main():
+    """Fragt den Benutzer nach Filterkriterien und führt die passende Funktion aus."""
+
     filter_option = input("What would you like to filter by? (name/age/email):  ").strip().lower()
 
     if filter_option == "name":
@@ -56,3 +73,6 @@ if __name__ == "__main__":
 
     else:
         print("Filtering by that option is not yet supported.")
+
+if __name__ == "__main__":
+    main()
